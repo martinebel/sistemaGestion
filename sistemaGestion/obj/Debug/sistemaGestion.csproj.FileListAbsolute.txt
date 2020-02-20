@@ -1,0 +1,61 @@
+c:\users\martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\bin\Debug\sistemaGestion.exe.config
+c:\users\martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\bin\Debug\sistemaGestion.exe
+c:\users\martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\bin\Debug\sistemaGestion.pdb
+c:\users\martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\bin\Debug\System.Windows.Forms.Ribbon.dll
+c:\users\martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.csprojResolveAssemblyReference.cache
+c:\users\martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Form1.resources
+c:\users\martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Properties.Resources.resources
+c:\users\martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.csproj.GenerateResource.Cache
+c:\users\martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.exe
+c:\users\martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.pdb
+c:\users\martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\bin\Debug\Bunifu_UI_v1.5.3.dll
+c:\users\martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\bin\Debug\MySql.Data.dll
+c:\users\martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Login.resources
+C:\Users\Martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Splash.resources
+C:\Users\Martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Ventas.resources
+C:\Users\Martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.ABMProductos.resources
+C:\Users\Martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Presupuesto.resources
+C:\Users\Martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Cobrador.resources
+C:\Users\Martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Compras.resources
+C:\Users\Martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.ABMClientes.resources
+C:\Users\Martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.ABMCategorias.resources
+C:\Users\Martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.ABMCuotas.resources
+C:\Users\Martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.ABMProveedores.resources
+C:\Users\Martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.ABMTarjetas.resources
+C:\Users\Martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.ABMUsuarios.resources
+C:\Users\Martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Configuracion.resources
+C:\Users\Martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Kardex.resources
+C:\Users\Martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Vencimientos.resources
+C:\Users\Martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Informes.resources
+C:\Users\Martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.ListadoFacturas.resources
+C:\Users\Martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\Interop.FiscalPrinterLib.dll
+C:\Users\Martin\documents\visual studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.csproj.ResolveComReference.cache
+F:\backup\sistemaGestion\sistemaGestion\bin\Debug\sistemaGestion.exe.config
+F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.exe
+F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.pdb
+F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.csprojResolveAssemblyReference.cache
+F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.ABMCategorias.resources
+F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.ABMClientes.resources
+F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.ABMCuotas.resources
+F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.ABMProductos.resources
+F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.ABMProveedores.resources
+F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.ABMTarjetas.resources
+F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.ABMUsuarios.resources
+F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Cobrador.resources
+F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Compras.resources
+F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Configuracion.resources
+F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Form1.resources
+F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Informes.resources
+F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Kardex.resources
+F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.ListadoFacturas.resources
+F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Login.resources
+F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Presupuesto.resources
+F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Properties.Resources.resources
+F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Splash.resources
+F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Vencimientos.resources
+F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Ventas.resources
+F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.csproj.GenerateResource.Cache
+F:\backup\sistemaGestion\sistemaGestion\bin\Debug\sistemaGestion.exe
+F:\backup\sistemaGestion\sistemaGestion\bin\Debug\sistemaGestion.pdb
+F:\backup\sistemaGestion\sistemaGestion\bin\Debug\Bunifu_UI_v1.5.3.dll
+F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.csproj.ResolveComReference.cache
