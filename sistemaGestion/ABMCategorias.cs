@@ -34,11 +34,11 @@ namespace sistemaGestion
             if (dbCon.IsConnect())
             {
 
-                var cmd = new MySqlCommand("select * from categorias order by catcodigo asc", dbCon.Connection);
+                var cmd = new MySqlCommand("select * from categorias order by IDCategoria asc", dbCon.Connection);
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    listBox1.Items.Add(reader.GetString(0) + "-" + reader.GetString(1));
+                    listBox1.Items.Add(reader.GetString(0) + "-" + reader.GetString(2));
                 }
                 reader.Close();
             }
@@ -50,11 +50,11 @@ namespace sistemaGestion
             if (dbCon.IsConnect())
             {
 
-                var cmd = new MySqlCommand("select * from categorias where catcodigo=" + bunifuCards1.Text, dbCon.Connection);
+                var cmd = new MySqlCommand("select * from categorias where IDCategoria=" + bunifuCards1.Text, dbCon.Connection);
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    textBox2.Text = reader.GetString(1);
+                    textBox2.Text = reader.GetString(2);
                 }
                 reader.Close();
             }
@@ -125,11 +125,11 @@ namespace sistemaGestion
 
             if (bunifuCards1.Text == "") //es un prd nuevo
             {
-                query = "insert into categorias values(NULL,'" + textBox2.Text + "')";
+                query = "insert into categorias values(NULL,1,'" + textBox2.Text + "',0)";
             }
             else // es una modificacion
             {
-                query = "update categorias set nombre='" + textBox2.Text + "' where catcodigo=" + bunifuCards1.Text;
+                query = "update categorias set nombre='" + textBox2.Text + "' where IDCategoria=" + bunifuCards1.Text;
             }
             if (dbCon.IsConnect())
             {
@@ -150,17 +150,16 @@ namespace sistemaGestion
             if (MessageBox.Show("Está por AUMENTAR todos los precios en un " + textBox1.Text + "%. Esta operación puede demorar dependiendo de la cantidad de productos que tenga esta categoría.\nEsta operación no se puede deshacer y modifica los precios de venta y de venta por paquete.\nDesea continuar?", "Precios", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 //obtener total de prod a modificar
-                var cmd = new MySqlCommand("select count(*) from catprod where catcodigo=" + bunifuCards1.Text, dbCon.Connection);
+                var cmd = new MySqlCommand("select count(*) from productos where IDCategoria=" + bunifuCards1.Text, dbCon.Connection);
                 var reader = cmd.ExecuteReader();
                 padre.toolStripProgressBar1.Maximum = reader.GetInt32(0);
                 padre.toolStripProgressBar1.Visible = true;
                 padre.toolStripProgressBar1.Value = 0;
                 Application.DoEvents();
                 reader.Close();
-
-                cmd = new MySqlCommand("select productos.proprecioventa,productos.preciopaquete,productos.procodigo from catprod inner join productos on productos.procodigo=catprod.procodigo where catcodigo=" + bunifuCards1.Text, dbCon.Connection);
-                 reader = cmd.ExecuteReader();
-                double precio = 0; double preciopaquete = 0; double sumar = 0; double sumarpaquete = 0;
+                cmd = new MySqlCommand("select productolista.Importe,productolista.Porcentaje,productos.IdProducto,productos.proprecioneto from productos inner join productolista on productos.procodigo=productolista.IdProducto where Categoria=" + bunifuCards1.Text, dbCon.Connection);
+                reader = cmd.ExecuteReader();
+                double precio = 0; double costo = 0; double sumar = 0; double porcentaje = 0;
                 DataTable dt = new DataTable();
                 dt.Load(reader);
                 reader.Close();
@@ -168,19 +167,9 @@ namespace sistemaGestion
                 {
                     padre.toolStripProgressBar1.Value++;
                     Application.DoEvents();
-                    precio = double.Parse(dr["proprecioventa"].ToString());
+                    precio = double.Parse(dr["Importe"].ToString());
                     sumar = (double.Parse(textBox1.Text.Replace(',', '.')) * precio) / 100;
-                    try
-                    {
-                        preciopaquete = double.Parse(dr["preciopaquete"].ToString());
-                        sumarpaquete = (double.Parse(textBox1.Text.Replace(',', '.')) * preciopaquete) / 100;
-                    }
-                    catch
-                    {
-                        preciopaquete = precio;
-                        sumarpaquete = sumar;
-                    }
-                    cmd = new MySqlCommand("update productos set proprecioventa='" + (precio + sumar).ToString().Replace(',', '.') + "',preciopaquete='" + (preciopaquete + sumarpaquete).ToString().Replace(',', '.') + "' where procodigo=" + dr["procodigo"].ToString(), dbCon.Connection);
+                    cmd = new MySqlCommand("update productolista set Importe='" + (precio + sumar).ToString().Replace(',', '.') + "',Porcentaje='" + porcentaje.ToString().Replace(',', '.') + "' where IdProducto=" + dr["IdProducto"].ToString(), dbCon.Connection);
                     cmd.ExecuteNonQuery();
 
 
@@ -201,16 +190,16 @@ namespace sistemaGestion
             if (MessageBox.Show("Está por DISMINUIR todos los precios en un " + textBox1.Text + "%. Esta operación puede demorar dependiendo de la cantidad de productos que tenga esta categoría.\nEsta operación no se puede deshacer y modifica los precios de venta y de venta por paquete.\nDesea continuar?", "Precios", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 //obtener total de prod a modificar
-                var cmd = new MySqlCommand("select count(*) from catprod where catcodigo=" + bunifuCards1.Text, dbCon.Connection);
+                var cmd = new MySqlCommand("select count(*) from productos where IDCategoria=" + bunifuCards1.Text, dbCon.Connection);
                 var reader = cmd.ExecuteReader();
                 padre.toolStripProgressBar1.Maximum = reader.GetInt32(0);
                 padre.toolStripProgressBar1.Visible = true;
                 padre.toolStripProgressBar1.Value = 0;
                 Application.DoEvents();
                 reader.Close();
-                 cmd = new MySqlCommand("select productos.proprecioventa,productos.preciopaquete,productos.procodigo from catprod inner join productos on productos.procodigo=catprod.procodigo where catcodigo=" + bunifuCards1.Text, dbCon.Connection);
+                 cmd = new MySqlCommand("select productolista.Importe,productolista.Porcentaje,productos.IdProducto,productos.proprecioneto from productos inner join productolista on productos.procodigo=productolista.IdProducto where Categoria=" + bunifuCards1.Text, dbCon.Connection);
                  reader = cmd.ExecuteReader();
-                double precio = 0; double preciopaquete = 0; double sumar = 0; double sumarpaquete = 0;
+                double precio = 0; double costo = 0; double sumar = 0; double porcentaje = 0;
                 DataTable dt = new DataTable();
                 dt.Load(reader);
                 reader.Close();
@@ -218,19 +207,9 @@ namespace sistemaGestion
                 {
                     padre.toolStripProgressBar1.Value++;
                     Application.DoEvents();
-                    precio = double.Parse(dr["proprecioventa"].ToString());
+                    precio = double.Parse(dr["Importe"].ToString());
                     sumar = (double.Parse(textBox1.Text.Replace(',', '.')) * precio) / 100;
-                    try
-                    {
-                        preciopaquete = double.Parse(dr["preciopaquete"].ToString());
-                        sumarpaquete = (double.Parse(textBox1.Text.Replace(',', '.')) * preciopaquete) / 100;
-                    }
-                    catch
-                    {
-                        preciopaquete = precio;
-                        sumarpaquete = sumar;
-                    }
-                    cmd = new MySqlCommand("update productos set proprecioventa='" + (precio - sumar).ToString().Replace(',', '.') + "',preciopaquete='" + (preciopaquete - sumarpaquete).ToString().Replace(',', '.') + "' where procodigo=" + dr["procodigo"].ToString(), dbCon.Connection);
+                    cmd = new MySqlCommand("update productolista set Importe='" + (precio - sumar).ToString().Replace(',', '.') + "',Porcentaje='" + porcentaje.ToString().Replace(',', '.') + "' where IdProducto=" + dr["IdProducto"].ToString(), dbCon.Connection);
                     cmd.ExecuteNonQuery();
 
 
@@ -269,13 +248,12 @@ namespace sistemaGestion
         private void bunifuFlatButton4_Click(object sender, EventArgs e)
         {
             //fijarse si no hay productos asociados, luego eliminar.
-            var cmd = new MySqlCommand("select * from catprod where catcodigo=" + bunifuCards1.Text, dbCon.Connection);
+            var cmd = new MySqlCommand("select * from productos where Categoria=" + bunifuCards1.Text, dbCon.Connection);
             var reader = cmd.ExecuteReader();
             if (reader.HasRows) { MessageBox.Show("Hay productos asociados a esta categoria. Debe re asociar dichos productos para poder eliminar esta categoria.", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error); reader.Close(); return; }
             reader.Close();
-            cmd = new MySqlCommand("delete from catprod where catcodigo=" + bunifuCards1.Text, dbCon.Connection);
-            cmd.ExecuteNonQuery();
-            cmd = new MySqlCommand("delete from categorias where catcodigo=" + bunifuCards1.Text, dbCon.Connection);
+            
+            cmd = new MySqlCommand("delete from categorias where IDCategoria=" + bunifuCards1.Text, dbCon.Connection);
             cmd.ExecuteNonQuery();
             bunifuFlatButton2_Click(this, e);
             cargarLista();
@@ -283,15 +261,19 @@ namespace sistemaGestion
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            
-            bunifuCards1.Enabled = true;
-            bunifuFlatButton4.Enabled = true;
-            bunifuCards3.Enabled = true;
-            bunifuCards5.Enabled = false;
+            if (bunifuCards1.Text != "")
+            {
+                bunifuCards1.Enabled = true;
+                bunifuFlatButton4.Enabled = true;
+                bunifuCards3.Enabled = true;
+                bunifuCards5.Enabled = false;
 
-            bunifuFlatButton1.Enabled = false;
-            bunifuFlatButton2.Enabled = true;
-            bunifuFlatButton3.Enabled = true;
+                bunifuFlatButton1.Enabled = false;
+                bunifuFlatButton2.Enabled = true;
+                bunifuFlatButton3.Enabled = true;
+                textBox2.Focus();
+                textBox2.SelectAll();
+            }
         }
     }
 }

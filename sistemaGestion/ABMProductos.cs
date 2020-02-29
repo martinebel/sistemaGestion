@@ -89,11 +89,11 @@ namespace sistemaGestion
             if (dbCon.IsConnect())
             {
 
-                var cmd = new MySqlCommand("select * from categorias order by catcodigo asc", dbCon.Connection);
+                var cmd = new MySqlCommand("select * from categorias order by idcategoria asc", dbCon.Connection);
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    comboBox2.Items.Add(reader.GetString(0) + "-" + reader.GetString(1));
+                    comboBox2.Items.Add(reader.GetString(0) + "-" + reader.GetString(2));
                 }
                 reader.Close();
             }
@@ -132,7 +132,7 @@ namespace sistemaGestion
                         break;
                     //por barras
                     case 3:
-                        query = "select * from productos where " + condicion + " procodbarra = '" + textBox3.Text + "'";
+                        query = "select * from productos where " + condicion + " procodbar = '" + textBox3.Text + "'";
                         break;
                 }
                 if (dbCon.IsConnect())
@@ -154,7 +154,7 @@ namespace sistemaGestion
                     {
                         principal.toolStripProgressBar1.Value++;
                         Application.DoEvents();
-                       fila = dataGridView1.Rows.Add(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(7));
+                       fila = dataGridView1.Rows.Add(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3));
                         if (reader.GetString(7) == "1")
                         {
                             for (int i = 0; i < dataGridView1.Columns.Count; i++)
@@ -212,14 +212,14 @@ namespace sistemaGestion
             {
                 if (dbCon.IsConnect())
                 {
-                    var cmd = new MySqlCommand("insert into categorias values(NULL,'" + input + "')", dbCon.Connection);
+                    var cmd = new MySqlCommand("insert into categorias values(NULL,1,'" + input + "',0)", dbCon.Connection);
                     cmd.ExecuteNonQuery();
-                    cmd = new MySqlCommand("select * from categorias order by catcodigo desc limit 1", dbCon.Connection);
+                    cmd = new MySqlCommand("select * from categorias order by idcategoria desc limit 1", dbCon.Connection);
                     var reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        comboBox2.Items.Add(reader.GetString(0) + "-" + reader.GetString(1));
-                        comboBox2.Text = reader.GetString(0) + "-" + reader.GetString(1);
+                        comboBox2.Items.Add(reader.GetString(0) + "-" + reader.GetString(2));
+                        comboBox2.Text = reader.GetString(0) + "-" + reader.GetString(2);
                     }
                     reader.Close();
 
@@ -263,16 +263,11 @@ namespace sistemaGestion
             textBox14.Text = "";
             textBox1.Text = "";
             textBox4.Text = "";
-            textBox9.Text = "";
             textBox5.Text = "";
-            textBox8.Text = "";
-            textBox11.Text = "";
-            textBox12.Text = "";
             textBox6.Text = "";
-            textBox10.Text = "";
             textBox7.Text = "";
-            label15.Text = "0u";
             comboBox1.Text = "21";
+            label12.Text = "Ultima Actualización: ";
             bunifuiOSSwitch1.Value = true;
             textBox2.Focus();
         }
@@ -371,18 +366,18 @@ namespace sistemaGestion
                         float costo = float.Parse(textBox4.Text.Replace('.', ','));
                         float ganancia = float.Parse(textBox9.Text.Replace('.', ','));
                         float diferencia = ((ganancia * costo) / 100);
-                        textBox5.Text = (costo + diferencia).ToString();
+                        textBox8.Text = (costo + diferencia).ToString();
                     }
                     catch
                     {
-                        textBox5.Text = "0";
+                        textBox8.Text = "0";
                     }
                 }
                 this.SelectNextControl(this.ActiveControl, true, true, true, true);
             }
         }
 
-        private void textBox5_KeyDown(object sender, KeyEventArgs e)
+        private void textBox8_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -392,7 +387,7 @@ namespace sistemaGestion
                 {
                     try
                     {
-                        float venta = float.Parse(textBox5.Text.Replace('.', ','));
+                        float venta = float.Parse(textBox8.Text.Replace('.', ','));
                         float costo = float.Parse(textBox4.Text.Replace('.', ','));
                         float diferencia = venta - costo;
                         float ganancia = ((diferencia * 100) / costo);
@@ -406,7 +401,7 @@ namespace sistemaGestion
                 this.SelectNextControl(this.ActiveControl, true, true, true, true);
             }
         }
-
+        /*
         private void textBox12_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -501,20 +496,10 @@ namespace sistemaGestion
                         textBox12.Text = "0";
                     }
                 }
-                //calcular costo por unidad
-               /* try
-                {
-                    float cantpaquete = float.Parse(textBox10.Text.Replace('.', ','));
-                    float costop = float.Parse(textBox11.Text.Replace('.', ','));
-                    textBox4.Text = (costop / cantpaquete).ToString();
-                }
-                catch
-                {
-                    textBox4.Text = "0";
-                }*/
+                
                 this.SelectNextControl(this.ActiveControl, true, true, true, true);
             }
-        }
+        }*/
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -809,11 +794,7 @@ namespace sistemaGestion
                 return;
             }
 
-            if (textBox5.Text == "" || !(float.TryParse(textBox5.Text, out numero)))
-            {
-                SetError(textBox5, "Este campo no puede estar vacio. Debe ser un número");
-                return;
-            }
+            
 
             if (textBox6.Text == "" || !(float.TryParse(textBox6.Text, out numero)))
             {
@@ -826,45 +807,21 @@ namespace sistemaGestion
                 return;
             }
 
-            if (textBox10.Text == "")
-            {
-                SetError(textBox10, "Este campo no puede estar vacio. Debe ser un número");
-                return;
-            }
 
-            if (textBox11.Text == "")
-            {
-                SetError(textBox11, "Este campo no puede estar vacio. Debe ser un número");
-                return;
-            }
-
-            if (textBox8.Text == "")
-            {
-                SetError(textBox8, "Este campo no puede estar vacio. Debe ser un número");
-                return;
-            }
-
-            //if (textBox8.Text == "") { textBox9.Text = textBox5.Text; }
-
-            try
-            {
-                label15.Text = (float.Parse(textBox10.Text.Replace('.', ',')) * float.Parse(textBox6.Text.Replace('.', ','))).ToString() + "u";
-            }
-            catch { }
+            string fechahoy = DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString()+" "+DateTime.Now.Hour.ToString()+":"+DateTime.Now.Minute.ToString()+":"+DateTime.Now.Second.ToString();
+            
 
             if(textBox14.Text.Trim()=="")
             {
                 textBox14.Text = dbCon.nuevoid("procodigo", "productos").ToString();
             }
 
-            string query = "select * from productos where procodbarra=" + textBox13.Text;
+            string query = "select * from productos where procodbar=" + textBox13.Text;
             var cmd = new MySqlCommand();
             MySqlDataReader reader = null;
             string baja = "1";
             if (bunifuiOSSwitch1.Value == true) { baja = "0"; }
             long codigo = 0;
-            string cantpaquete = "1";
-            cantpaquete = textBox10.Text;
 
             if (esnuevo) //es un prd nuevo
             {
@@ -886,17 +843,15 @@ namespace sistemaGestion
                     else { SetError(textBox14, "Ya existe este codigo."); return; }
                 }
                 reader.Close();
-                query = @"INSERT INTO `productos`(`procodigo`, `procodbarra`, `prodescripcion`, `propreciocosto`, `proiva`, 
-                `proprecioneto`, `proprecioventa`, `prostock`, `prostockmin`, `probaja`, `cantpaquete`, `preciopaquete`, `costopaquete`)
- 
-                VALUES ("+textBox14.Text+ @",'" + textBox13.Text + @"','" + textBox2.Text + @"','" + textBox1.Text.Replace(',','.') + @"','" + comboBox1.Text.Replace(',','.') + @"','" + textBox4.Text.Replace(',','.') + @"','" + textBox5.Text.Replace(',','.') + @"','" + label15.Text.Replace("u","") + @"','" + textBox7.Text.Replace(',','.') + @"','" + baja + @"','" + textBox10.Text.Replace(',','.') + @"',
-                '" + textBox8.Text.Replace(',','.') + @"','" + textBox11.Text.Replace(',', '.') + @"')";
+                query = @"INSERT INTO `productos`(`ProCodigo`, `ProCodBar`, `ProDescripcion`, `ProStockActual`, `ProPrecioCosto`, `ProPrecioNeto`, `ProIVA`, `ProCantMinima`, `ProFecha`, `ProBaja`, `Fabricante`, `ProFechaUActualizacion`, `Categoria`, `Descripcion`, `EsBundle`) VALUES (" + textBox14.Text+ ",'" + textBox13.Text + "','" + textBox2.Text + "','" + textBox6.Text.Replace(',','.') + "','"+ textBox1.Text.Replace(',', '.')+"','" + textBox4.Text.Replace(',','.') + "','" + comboBox1.Text.Replace(',','.') + "','" + textBox7.Text.Replace(',','.') +"','"+ fechahoy+ "','" + baja + "','','" + fechahoy + "','" + dbCon.extraerCodigo(comboBox2.Text) + "','" + textBox5.Text + "','0')";
             }
             else // es una modificacion
             {
-                query = "update `productos` SET procodbarra='" + textBox13.Text + "',prodescripcion='" + textBox2.Text + "',propreciocosto='" + textBox1.Text.Replace(',', '.') + "',proiva='" + comboBox1.Text.Replace(',', '.') + "',proprecioneto='" + textBox4.Text.Replace(',', '.') + "',proprecioventa='" + textBox5.Text.Replace(',', '.') + "',prostock='" + label15.Text.Replace("u", "") + "',prostockmin='" + textBox7.Text.Replace(',', '.') + "',probaja='" + baja + "',cantpaquete='" + textBox10.Text.Replace(',', '.') + "',preciopaquete='" + textBox8.Text.Replace(',', '.') + "',costopaquete='" + textBox11.Text.Replace(',', '.') + "' where procodigo="+textBox14.Text;
+                query = "update `productos` SET procodbar='" + textBox13.Text + "',prodescripcion='" + textBox2.Text + "',propreciocosto='" + textBox1.Text.Replace(',', '.') + "',proiva='" + comboBox1.Text.Replace(',', '.') + "',proprecioneto='" + textBox4.Text.Replace(',', '.') + "',prostockactual='" + textBox6.Text.Replace(',', '.') + "',ProCantMinima='" + textBox7.Text.Replace(',', '.') + "',probaja='" + baja + "', profechauactualizacion='" + fechahoy + "',categoria='" + dbCon.extraerCodigo(comboBox2.Text) + "',descripcion='" + textBox5.Text + "' where procodigo=" + textBox14.Text;
 
             }
+            
+
             if (dbCon.IsConnect())
             {
                 cmd = new MySqlCommand(query, dbCon.Connection);
@@ -910,14 +865,15 @@ namespace sistemaGestion
                     codigo = cmd.LastInsertedId;
                 }
                 reader.Close();
+
+                cmd= new MySqlCommand("delete from productolista where idproducto="+codigo, dbCon.Connection);
+                cmd.ExecuteNonQuery();
+                cmd = new MySqlCommand("insert into productolista values (1,"+codigo+",'" + textBox8.Text.Replace(',', '.')+ "','" + textBox9.Text.Replace(',', '.') + "',0)", dbCon.Connection);
+                reader = cmd.ExecuteReader();
+                reader.Close();
             }
-            //categorias
-            query = "delete from catprod where procodigo=" + codigo + ";insert into catprod values (" + dbCon.extraerCodigo(comboBox2.Text) + "," + codigo + ")";
 
-            cmd = new MySqlCommand(query, dbCon.Connection);
-            reader = cmd.ExecuteReader();
-
-            reader.Close();
+            
 
 
             if (padre != null)
@@ -935,60 +891,39 @@ namespace sistemaGestion
         {
             if (dbCon.IsConnect())
             {
-                string query = "select productos.*,catprod.catcodigo,categorias.nombre as categoria from productos inner join catprod on catprod.procodigo=productos.procodigo inner join categorias on categorias.catcodigo=catprod.catcodigo where productos.procodigo=" + dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                string query = "select productos.*,categorias.nombre as categoria from productos inner join categorias on categorias.IDCategoria=productos.categoria where productos.procodigo=" + dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                 var cmd = new MySqlCommand(query, dbCon.Connection);
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     textBox14.Text = reader.GetString(0); //procodigo
-                    textBox2.Text = reader.GetString(2); ; //prodescripcion
                     textBox13.Text = reader.GetString(1); //procodbarrra
-                    textBox1.Text = reader.GetString(3); //propreciocosto (costo unidad)
+                    textBox2.Text = reader.GetString(2); ; //prodescripcion
+                    textBox6.Text = reader.GetString(3); //stock actual
+
+                    textBox1.Text = reader.GetString(4); //propreciocosto (costo unidad)
                     textBox4.Text = reader.GetString(5); //proprecioneto (costo unidad)
-                    comboBox1.Text = reader.GetString(4); //proiva
-                    textBox5.Text = reader.GetString(6); //proprecioventa (venta unidad)
-                    label15.Text = reader.GetString(7).Replace(',', '.') + "u"; //prostock (stock real)
-                    textBox11.Text = reader.GetString(12); //costopaquete
-                    textBox8.Text = reader.GetString(11); //preciopaquete
-                   
-                    try
-                    {
-                        float ganancia = float.Parse(textBox5.Text.Replace('.', ',')) - float.Parse(textBox4.Text.Replace('.', ','));
-                        float porcentaje = 100 * (ganancia / float.Parse(textBox4.Text.Replace('.', ',')));
-                        textBox9.Text = porcentaje.ToString(); //ganancia unidad
-                    }
-                    catch { }
+                    comboBox1.Text = reader.GetString(6); //proiva
 
-                    try
-                    {
-                        float gananciap = float.Parse(textBox8.Text.Replace('.', ',')) - float.Parse(textBox11.Text.Replace('.', ','));
-                        float porcentajep = 100 * (gananciap / float.Parse(textBox11.Text.Replace('.', ',')));
-                        textBox12.Text = porcentajep.ToString(); //ganancia paquete
-                    }
-                    catch { }
+                    textBox7.Text = reader.GetString(7); //stockmin
+                    label12.Text = "Ultima Actualización: "+reader.GetString(11); //fecha
+                    comboBox2.Text = reader.GetString(12) + "-" + reader.GetString(15); //categoria
 
-                    textBox7.Text = reader.GetString(8); //stockmin
-                    try
-                    {
+                    textBox5.Text = reader.GetString(13); //descripcion
 
-
-                        textBox10.Text = reader.GetString(10); //cantpaquete
-                        if (!reader.IsDBNull(10))
-                        { textBox10.Text = reader.GetString(10); }
-                        else { textBox10.Text = "1"; }
-
-                        //stock actual
-                        textBox6.Text = (float.Parse(reader.GetString(7).Replace(',', '.')) / float.Parse(textBox10.Text.Replace(',', '.'))).ToString();
-                        if (!reader.IsDBNull(11))
-                        { textBox8.Text = reader.GetString(11); }
-                        else { textBox8.Text = textBox5.Text; }
-                    }
-                    catch { }
-                    comboBox2.Text = reader.GetString(13) + "-" + reader.GetString(14); //categoria
-                   // groupBox1.Text = reader.GetString(0); //codigo
+                    // groupBox1.Text = reader.GetString(0); //codigo
                     if (reader.GetString(9) == "1") { bunifuiOSSwitch1.Value= false; } else { bunifuiOSSwitch1.Value = true; } //probaja
                 }
                 reader.Close();
+                cmd = new MySqlCommand("select * from productolista where idlista=1 and idproducto=" + dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(), dbCon.Connection);
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    textBox8.Text = reader.GetString(2);
+                    textBox9.Text = reader.GetString(3);
+                }
+                reader.Close();
+
             }
         }
     }

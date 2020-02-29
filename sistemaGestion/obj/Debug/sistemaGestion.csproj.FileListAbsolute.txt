@@ -59,3 +59,30 @@ F:\backup\sistemaGestion\sistemaGestion\bin\Debug\sistemaGestion.exe
 F:\backup\sistemaGestion\sistemaGestion\bin\Debug\sistemaGestion.pdb
 F:\backup\sistemaGestion\sistemaGestion\bin\Debug\Bunifu_UI_v1.5.3.dll
 F:\backup\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.csproj.ResolveComReference.cache
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\bin\Debug\sistemaGestion.exe.config
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.exe
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\bin\Debug\sistemaGestion.exe
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\bin\Debug\sistemaGestion.pdb
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.csprojResolveAssemblyReference.cache
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.ABMCategorias.resources
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.ABMClientes.resources
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.ABMCuotas.resources
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.ABMProductos.resources
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.ABMProveedores.resources
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.ABMTarjetas.resources
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.ABMUsuarios.resources
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Cobrador.resources
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Compras.resources
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Configuracion.resources
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Form1.resources
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Informes.resources
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Kardex.resources
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.ListadoFacturas.resources
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Login.resources
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Presupuesto.resources
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Properties.Resources.resources
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Splash.resources
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Vencimientos.resources
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.Ventas.resources
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.csproj.GenerateResource.Cache
+C:\Users\Martin Ebel\Documents\Visual Studio 2015\Projects\sistemaGestion\sistemaGestion\obj\Debug\sistemaGestion.pdb

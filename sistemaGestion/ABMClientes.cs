@@ -33,16 +33,9 @@ namespace sistemaGestion
             dataGridView1.Columns.Add("direccion", "Direccion");
             if (dbCon.IsConnect())
             {
-
-                var cmd = new MySqlCommand("select * from tipodocumentos order by codigo asc", dbCon.Connection);
-                var reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    comboBox2.Items.Add(reader.GetString(0) + "-" + reader.GetString(1));
-                }
-                reader.Close();
-                 cmd = new MySqlCommand("select * from tipoiva order by codigo asc", dbCon.Connection);
-                 reader = cmd.ExecuteReader();
+                
+                 var cmd = new MySqlCommand("select * from resiva order by ivacodigo asc", dbCon.Connection);
+                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     comboBox3.Items.Add(reader.GetString(0) + "-" + reader.GetString(1));
@@ -78,7 +71,7 @@ namespace sistemaGestion
                         break;
                     //por cuit
                     case 2:
-                        query = "select * from clientes where clicuit='" + textBox1.Text + "'";
+                        query = "select * from clientes where clinumdoc='" + textBox1.Text + "'";
                         break;
 
                 }
@@ -101,7 +94,7 @@ namespace sistemaGestion
                     {
                         principal.toolStripProgressBar1.Value++;
                         Application.DoEvents();
-                        fila = dataGridView1.Rows.Add(reader.GetString(0), reader.GetString(1), reader.GetString(3), reader.GetString(4), reader.GetString(5)+" "+ reader.GetString(6)+" "+ reader.GetString(7));
+                        fila = dataGridView1.Rows.Add(reader.GetString(0), reader.GetString(1), reader.GetString(2)+"-"+reader.GetString(3), reader.GetString(9), reader.GetString(5)+" "+ reader.GetString(6)+" "+ reader.GetString(7));
                         
                     }
                     reader.Close();
@@ -116,19 +109,20 @@ namespace sistemaGestion
         {
             if (dbCon.IsConnect())
             {
-                string query = "select clientes.*,tipodocumentos.nombre as tipodocumento,tipoiva.nombre as tipoiva from clientes inner join tipodocumentos on tipodocumentos.codigo=clientes.clitipodoc inner join tipoiva on tipoiva.codigo=clientes.clitipo where clicodigo=" + dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                string query = "select clientes.*,resiva.IvaDescripcion as tipoiva from clientes inner join resiva on resiva.ivacodigo=clientes.ivacodigo where clicodigo=" + dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                 var cmd = new MySqlCommand(query, dbCon.Connection);
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     textBox2.Text = reader.GetString(1);//razon social
-                    comboBox2.Text= reader.GetString(2)+"-"+ reader.GetString(9); //tipo doc
+                    comboBox2.Text= reader.GetString(2); //tipo doc
                     textBox3.Text = reader.GetString(3); //numdoc
-                    comboBox3.Text = reader.GetString(8) + "-" + reader.GetString(10); //tipo iva
+                    comboBox3.Text = reader.GetString(4) + "-" + reader.GetString(13); //tipo iva
                     textBox4.Text = reader.GetString(5); //dir
                     textBox5.Text = reader.GetString(6); //local
                     textBox6.Text = reader.GetString(7); //prov
-                    textBox7.Text = reader.GetString(4); //tel
+                    textBox7.Text = reader.GetString(9); //tel
+                    textBox8.Text = reader.GetString(10); //email
                     bunifuCards1.Text = reader.GetString(0);
                 }
                 reader.Close();
@@ -151,6 +145,7 @@ namespace sistemaGestion
             textBox5.Text = "";
             textBox6.Text = "";
             textBox7.Text = "";
+            textBox8.Text = "";
             comboBox2.SelectedIndex = 0;
             comboBox3.SelectedIndex = 0;
             textBox2.Focus();
@@ -159,13 +154,16 @@ namespace sistemaGestion
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            bunifuCards1.Enabled = true;
-            bunifuCards3.Enabled = true;
-            bunifuCards5.Enabled = false;
-            dataGridView1.Enabled = false;
-            bunifuFlatButton1.Enabled = false;
-            bunifuFlatButton2.Enabled = true;
-            bunifuFlatButton3.Enabled = true;
+            if (bunifuCards1.Text != "")
+            {
+                bunifuCards1.Enabled = true;
+                bunifuCards3.Enabled = true;
+                bunifuCards5.Enabled = false;
+                dataGridView1.Enabled = false;
+                bunifuFlatButton1.Enabled = false;
+                bunifuFlatButton2.Enabled = true;
+                bunifuFlatButton3.Enabled = true;
+            }
         }
 
         private void clearError()
@@ -189,6 +187,7 @@ namespace sistemaGestion
 
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
+            bunifuCards1.Text = "";
             bunifuCards1.Enabled = false;
             bunifuCards3.Enabled = false;
             bunifuCards5.Enabled = true;
@@ -209,14 +208,16 @@ namespace sistemaGestion
             if (textBox6.Text == "") { SetError(textBox6, "Este campo no puede estar vacio"); return; }
             if (textBox7.Text == "") { SetError(textBox7, "Este campo no puede estar vacio"); return; }
             var cmd = new MySqlCommand();
+            int codigo = dbCon.nuevoid("CliCodigo", "Clientes");
+            string fechahoy = DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString();
             if (bunifuCards1.Text == "") //es nuevo
             {
-                cmd = new MySqlCommand("INSERT INTO `clientes`(`clicodigo`, `clirazonsocial`, `clitipodoc`, `clicuit`, `clitelefono`, `clidireccion`, `clilocalidad`, `cliprovincia`, `clitipo`) VALUES (NULL,'" + textBox2.Text + "','" + dbCon.extraerCodigo(comboBox2.Text) + "','" + textBox3.Text + "','" + textBox7.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + textBox6.Text + "','" + dbCon.extraerCodigo(comboBox3.Text) + "')", dbCon.Connection);
+                cmd = new MySqlCommand("INSERT INTO `clientes`(`CliCodigo`, `CliRazonSocial`, `CliTipoDoc`, `CliNumDoc`, `IvaCodigo`, `CliDireccion`, `CliLocalidad`, `CliProvincia`, `CliCPostal`, `CliTelefono`, `CliEmail`, `CliFechaAlta`, `CliTipoCliente`) VALUES ("+codigo.ToString()+",'" + textBox2.Text + "','" + comboBox2.Text + "','" + textBox3.Text + "','" + dbCon.extraerCodigo(comboBox3.Text) + "','" + textBox4.Text + "','" + textBox5.Text + "','" + textBox6.Text + "','','" + textBox7.Text + "','"+ textBox8.Text+"','"+fechahoy+"','')", dbCon.Connection);
                 cmd.ExecuteNonQuery();
             }
             else
             {
-                cmd = new MySqlCommand("update clientes set clirazonsocial='" + textBox2.Text + "',clitipodoc='" + dbCon.extraerCodigo(comboBox2.Text) + "',clicuit='" + textBox3.Text + "',clitelefono='" + textBox7.Text + "',clidireccion='" + textBox4.Text + "',clilocalidad='" + textBox5.Text + "',cliprovincia='" + textBox6.Text + "',clitipo='" + dbCon.extraerCodigo(comboBox3.Text) + "' where clicodigo="+bunifuCards1.Text, dbCon.Connection);
+                cmd = new MySqlCommand("update clientes set clirazonsocial='" + textBox2.Text + "',clitipodoc='" + comboBox2.Text + "',CliNumDoc='" + textBox3.Text + "',clitelefono='" + textBox7.Text + "',clidireccion='" + textBox4.Text + "',clilocalidad='" + textBox5.Text + "',cliprovincia='" + textBox6.Text + "',IvaCodigo='" + dbCon.extraerCodigo(comboBox3.Text) + "',cliemail='"+textBox8.Text+"' where clicodigo="+bunifuCards1.Text, dbCon.Connection);
                 cmd.ExecuteNonQuery();
             }
             bunifuFlatButton2_Click(this, e);

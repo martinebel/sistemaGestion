@@ -106,7 +106,7 @@ namespace sistemaGestion
                 {
                     Form1 principal = new Form1(nombreusuario, tipousuario, idusuario);
                     principal.Show();
-                    this.Close();
+                    this.Hide();
                 }
                 else
                 {
@@ -145,6 +145,11 @@ namespace sistemaGestion
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void bunifuDropdown1_onItemSelected(object sender, EventArgs e)
+        {
+            bunifuFlatButton1_Click_1(this, e);
         }
     }
 }

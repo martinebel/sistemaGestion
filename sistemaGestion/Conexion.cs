@@ -127,7 +127,7 @@ namespace sistemaGestion
         public int nuevoid(string campo, string tabla)
         {
             int final = 0;
-            var cmd = new MySqlCommand("select max(" + campo + ") as total from " + tabla, this.Connection);
+            var cmd = new MySqlCommand("select coalesce(max(" + campo + "),0) as total from " + tabla, this.Connection);
             var reader = cmd.ExecuteReader();
             if (!reader.HasRows)
             {

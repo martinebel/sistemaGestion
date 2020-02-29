@@ -39,7 +39,6 @@
             this.ribbonButton2 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton3 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton29 = new System.Windows.Forms.RibbonButton();
-            this.ribbonButton30 = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel14 = new System.Windows.Forms.RibbonPanel();
             this.ribbonButton33 = new System.Windows.Forms.RibbonButton();
             this.ribbonTab2 = new System.Windows.Forms.RibbonTab();
@@ -84,6 +83,7 @@
             this.ribbonPanel12 = new System.Windows.Forms.RibbonPanel();
             this.ribbonButton28 = new System.Windows.Forms.RibbonButton();
             this.ribbonLabel1 = new System.Windows.Forms.RibbonLabel();
+            this.ribbonButton30 = new System.Windows.Forms.RibbonButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -199,15 +199,6 @@
             this.ribbonButton29.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton29.SmallImage")));
             this.ribbonButton29.Text = "Listado";
             this.ribbonButton29.Click += new System.EventHandler(this.ribbonButton29_Click);
-            // 
-            // ribbonButton30
-            // 
-            this.ribbonButton30.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton30.Image")));
-            this.ribbonButton30.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton30.LargeImage")));
-            this.ribbonButton30.MinimumSize = new System.Drawing.Size(85, 0);
-            this.ribbonButton30.Name = "ribbonButton30";
-            this.ribbonButton30.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton30.SmallImage")));
-            this.ribbonButton30.Text = "Cierre Z";
             // 
             // ribbonPanel14
             // 
@@ -604,6 +595,15 @@
             this.ribbonLabel1.Name = "ribbonLabel1";
             this.ribbonLabel1.Text = "Versión 8.0";
             // 
+            // ribbonButton30
+            // 
+            this.ribbonButton30.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton30.Image")));
+            this.ribbonButton30.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton30.LargeImage")));
+            this.ribbonButton30.MinimumSize = new System.Drawing.Size(85, 0);
+            this.ribbonButton30.Name = "ribbonButton30";
+            this.ribbonButton30.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton30.SmallImage")));
+            this.ribbonButton30.Text = "Cierre Z";
+            // 
             // timer1
             // 
             this.timer1.Enabled = true;
@@ -658,6 +658,7 @@
             this.Name = "Form1";
             this.Text = "GPlus";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

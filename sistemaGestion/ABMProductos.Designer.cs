@@ -42,10 +42,8 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.bunifuCards2 = new Bunifu.Framework.UI.BunifuCards();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -56,16 +54,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.bunifuCards4 = new Bunifu.Framework.UI.BunifuCards();
@@ -109,7 +101,7 @@
             this.bunifuCards1.Controls.Add(this.label3);
             this.bunifuCards1.Enabled = false;
             this.bunifuCards1.LeftSahddow = false;
-            this.bunifuCards1.Location = new System.Drawing.Point(248, 263);
+            this.bunifuCards1.Location = new System.Drawing.Point(248, 302);
             this.bunifuCards1.Name = "bunifuCards1";
             this.bunifuCards1.RightSahddow = true;
             this.bunifuCards1.ShadowDepth = 20;
@@ -118,8 +110,10 @@
             // 
             // textBox14
             // 
+            this.textBox14.Enabled = false;
             this.textBox14.Location = new System.Drawing.Point(103, 71);
             this.textBox14.Name = "textBox14";
+            this.textBox14.ReadOnly = true;
             this.textBox14.Size = new System.Drawing.Size(69, 20);
             this.textBox14.TabIndex = 2;
             this.textBox14.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox14_KeyDown);
@@ -137,7 +131,7 @@
             // 
             this.linkLabel2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkLabel2.Image = ((System.Drawing.Image)(resources.GetObject("linkLabel2.Image")));
-            this.linkLabel2.Location = new System.Drawing.Point(187, 111);
+            this.linkLabel2.Location = new System.Drawing.Point(203, 111);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(18, 24);
             this.linkLabel2.TabIndex = 5;
@@ -150,7 +144,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(13, 114);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(168, 21);
+            this.comboBox2.Size = new System.Drawing.Size(184, 21);
             this.comboBox2.TabIndex = 4;
             // 
             // label9
@@ -227,83 +221,59 @@
             this.bunifuCards2.BorderRadius = 5;
             this.bunifuCards2.BottomSahddow = true;
             this.bunifuCards2.color = System.Drawing.Color.Tomato;
-            this.bunifuCards2.Controls.Add(this.label15);
-            this.bunifuCards2.Controls.Add(this.label14);
-            this.bunifuCards2.Controls.Add(this.textBox10);
-            this.bunifuCards2.Controls.Add(this.label13);
+            this.bunifuCards2.Controls.Add(this.textBox5);
+            this.bunifuCards2.Controls.Add(this.label6);
             this.bunifuCards2.Controls.Add(this.label12);
-            this.bunifuCards2.Controls.Add(this.textBox7);
-            this.bunifuCards2.Controls.Add(this.label8);
-            this.bunifuCards2.Controls.Add(this.textBox6);
-            this.bunifuCards2.Controls.Add(this.label7);
             this.bunifuCards2.Enabled = false;
             this.bunifuCards2.LeftSahddow = false;
-            this.bunifuCards2.Location = new System.Drawing.Point(742, 263);
+            this.bunifuCards2.Location = new System.Drawing.Point(740, 302);
             this.bunifuCards2.Name = "bunifuCards2";
             this.bunifuCards2.RightSahddow = true;
             this.bunifuCards2.ShadowDepth = 20;
-            this.bunifuCards2.Size = new System.Drawing.Size(241, 144);
+            this.bunifuCards2.Size = new System.Drawing.Size(342, 144);
             this.bunifuCards2.TabIndex = 5;
             // 
-            // label15
+            // textBox5
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(168, 31);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(19, 13);
-            this.label15.TabIndex = 35;
-            this.label15.Text = "0u";
+            this.textBox5.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBox5.Location = new System.Drawing.Point(13, 28);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox5.Size = new System.Drawing.Size(315, 84);
+            this.textBox5.TabIndex = 33;
             // 
-            // label14
+            // label6
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(168, 12);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(55, 13);
-            this.label14.TabIndex = 34;
-            this.label14.Text = "Stock real";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(85, 28);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(65, 20);
-            this.textBox10.TabIndex = 1;
-            this.textBox10.Text = "0";
-            this.textBox10.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox10_KeyDown);
-            this.textBox10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox10_KeyPress);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(82, 12);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(80, 13);
-            this.label13.TabIndex = 33;
-            this.label13.Text = "Cant x Paquete";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(10, 12);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(63, 13);
+            this.label6.TabIndex = 34;
+            this.label6.Text = "Descripción";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(82, 74);
+            this.label12.Location = new System.Drawing.Point(10, 122);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(50, 13);
-            this.label12.TabIndex = 32;
-            this.label12.Text = "unidades";
+            this.label12.Size = new System.Drawing.Size(107, 13);
+            this.label12.TabIndex = 44;
+            this.label12.Text = "Ultima actualización: ";
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(14, 71);
+            this.textBox7.Location = new System.Drawing.Point(89, 115);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(65, 20);
-            this.textBox7.TabIndex = 2;
+            this.textBox7.TabIndex = 6;
             this.textBox7.Text = "0";
             this.textBox7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox7_KeyPress);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(11, 55);
+            this.label8.Location = new System.Drawing.Point(86, 99);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(55, 13);
             this.label8.TabIndex = 31;
@@ -311,18 +281,17 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(14, 28);
+            this.textBox6.Location = new System.Drawing.Point(13, 115);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(65, 20);
-            this.textBox6.TabIndex = 0;
+            this.textBox6.TabIndex = 5;
             this.textBox6.Text = "0";
-            this.textBox6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox6_KeyDown);
             this.textBox6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox6_KeyPress);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(11, 12);
+            this.label7.Location = new System.Drawing.Point(10, 99);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(68, 13);
             this.label7.TabIndex = 30;
@@ -338,26 +307,24 @@
             this.bunifuCards3.Controls.Add(this.comboBox1);
             this.bunifuCards3.Controls.Add(this.label4);
             this.bunifuCards3.Controls.Add(this.textBox1);
+            this.bunifuCards3.Controls.Add(this.textBox7);
+            this.bunifuCards3.Controls.Add(this.label8);
             this.bunifuCards3.Controls.Add(this.label2);
-            this.bunifuCards3.Controls.Add(this.textBox12);
-            this.bunifuCards3.Controls.Add(this.label17);
-            this.bunifuCards3.Controls.Add(this.textBox11);
-            this.bunifuCards3.Controls.Add(this.label16);
-            this.bunifuCards3.Controls.Add(this.textBox8);
-            this.bunifuCards3.Controls.Add(this.label10);
             this.bunifuCards3.Controls.Add(this.textBox9);
+            this.bunifuCards3.Controls.Add(this.textBox8);
             this.bunifuCards3.Controls.Add(this.label11);
-            this.bunifuCards3.Controls.Add(this.textBox5);
-            this.bunifuCards3.Controls.Add(this.label6);
+            this.bunifuCards3.Controls.Add(this.textBox6);
+            this.bunifuCards3.Controls.Add(this.label10);
             this.bunifuCards3.Controls.Add(this.textBox4);
+            this.bunifuCards3.Controls.Add(this.label7);
             this.bunifuCards3.Controls.Add(this.label5);
             this.bunifuCards3.Enabled = false;
             this.bunifuCards3.LeftSahddow = false;
-            this.bunifuCards3.Location = new System.Drawing.Point(495, 263);
+            this.bunifuCards3.Location = new System.Drawing.Point(495, 302);
             this.bunifuCards3.Name = "bunifuCards3";
             this.bunifuCards3.RightSahddow = true;
             this.bunifuCards3.ShadowDepth = 20;
-            this.bunifuCards3.Size = new System.Drawing.Size(241, 144);
+            this.bunifuCards3.Size = new System.Drawing.Size(239, 144);
             this.bunifuCards3.TabIndex = 4;
             // 
             // comboBox1
@@ -366,7 +333,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "10,5",
             "21"});
-            this.comboBox1.Location = new System.Drawing.Point(83, 28);
+            this.comboBox1.Location = new System.Drawing.Point(89, 29);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(65, 21);
             this.comboBox1.TabIndex = 1;
@@ -377,7 +344,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(80, 13);
+            this.label4.Location = new System.Drawing.Point(86, 13);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 46;
@@ -401,99 +368,46 @@
             this.label2.TabIndex = 44;
             this.label2.Text = "Costo";
             // 
-            // textBox12
+            // textBox9
             // 
-            this.textBox12.Location = new System.Drawing.Point(12, 115);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(65, 20);
-            this.textBox12.TabIndex = 5;
-            this.textBox12.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox12_KeyDown);
-            this.textBox12.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox12_KeyPress);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(10, 99);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(66, 13);
-            this.label17.TabIndex = 42;
-            this.label17.Text = "% Gan. Paq.";
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(156, 115);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(65, 20);
-            this.textBox11.TabIndex = 31;
-            this.textBox11.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox11_KeyDown);
-            this.textBox11.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox11_KeyPress);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(153, 99);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(59, 13);
-            this.label16.TabIndex = 41;
-            this.label16.Text = "Costo Paq.";
+            this.textBox9.Location = new System.Drawing.Point(89, 72);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(65, 20);
+            this.textBox9.TabIndex = 4;
+            this.textBox9.Text = "0";
+            this.textBox9.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox9_KeyDown);
+            this.textBox9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox9_KeyPress);
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(83, 115);
+            this.textBox8.Location = new System.Drawing.Point(12, 72);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(65, 20);
-            this.textBox8.TabIndex = 6;
+            this.textBox8.TabIndex = 3;
+            this.textBox8.Text = "0";
             this.textBox8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox8_KeyDown);
-            this.textBox8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox8_KeyPress);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(80, 99);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(68, 13);
-            this.label10.TabIndex = 40;
-            this.label10.Text = "Venta x Paq.";
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(12, 71);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(65, 20);
-            this.textBox9.TabIndex = 3;
-            this.textBox9.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox9_KeyDown);
-            this.textBox9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox9_KeyPress);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(9, 55);
+            this.label11.Location = new System.Drawing.Point(86, 55);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(69, 13);
-            this.label11.TabIndex = 39;
-            this.label11.Text = "% Gan. Unid.";
+            this.label11.Size = new System.Drawing.Size(79, 13);
+            this.label11.TabIndex = 30;
+            this.label11.Text = "% de Ganancia";
             // 
-            // textBox5
+            // label10
             // 
-            this.textBox5.Location = new System.Drawing.Point(83, 71);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(65, 20);
-            this.textBox5.TabIndex = 4;
-            this.textBox5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox5_KeyDown);
-            this.textBox5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox5_KeyPress);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(80, 55);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 13);
-            this.label6.TabIndex = 38;
-            this.label6.Text = "Venta x Unid.";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(9, 56);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(59, 13);
+            this.label10.TabIndex = 30;
+            this.label10.Text = "$ de Venta";
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(156, 29);
+            this.textBox4.Location = new System.Drawing.Point(165, 29);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(65, 20);
             this.textBox4.TabIndex = 2;
@@ -503,7 +417,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(153, 12);
+            this.label5.Location = new System.Drawing.Point(162, 13);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 13);
             this.label5.TabIndex = 36;
@@ -511,6 +425,7 @@
             // 
             // bunifuCards4
             // 
+            this.bunifuCards4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.bunifuCards4.BackColor = System.Drawing.Color.White;
             this.bunifuCards4.BorderRadius = 5;
             this.bunifuCards4.BottomSahddow = true;
@@ -519,7 +434,7 @@
             this.bunifuCards4.Controls.Add(this.bunifuFlatButton1);
             this.bunifuCards4.Controls.Add(this.bunifuFlatButton2);
             this.bunifuCards4.LeftSahddow = false;
-            this.bunifuCards4.Location = new System.Drawing.Point(2, 136);
+            this.bunifuCards4.Location = new System.Drawing.Point(2, 302);
             this.bunifuCards4.Name = "bunifuCards4";
             this.bunifuCards4.RightSahddow = true;
             this.bunifuCards4.ShadowDepth = 20;
@@ -655,7 +570,7 @@
             this.bunifuCards5.Name = "bunifuCards5";
             this.bunifuCards5.RightSahddow = true;
             this.bunifuCards5.ShadowDepth = 20;
-            this.bunifuCards5.Size = new System.Drawing.Size(241, 124);
+            this.bunifuCards5.Size = new System.Drawing.Size(522, 66);
             this.bunifuCards5.TabIndex = 0;
             // 
             // label21
@@ -687,7 +602,7 @@
             this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabel1.Image = ((System.Drawing.Image)(resources.GetObject("linkLabel1.Image")));
             this.linkLabel1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.linkLabel1.Location = new System.Drawing.Point(11, 99);
+            this.linkLabel1.Location = new System.Drawing.Point(406, 12);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(105, 14);
             this.linkLabel1.TabIndex = 3;
@@ -722,7 +637,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(9, 56);
+            this.label20.Location = new System.Drawing.Point(257, 14);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(40, 13);
             this.label20.TabIndex = 6;
@@ -731,9 +646,9 @@
             // textBox3
             // 
             this.textBox3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox3.Location = new System.Drawing.Point(13, 72);
+            this.textBox3.Location = new System.Drawing.Point(261, 30);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(208, 20);
+            this.textBox3.Size = new System.Drawing.Size(250, 20);
             this.textBox3.TabIndex = 2;
             this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox3_KeyDown);
             // 
@@ -745,12 +660,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(248, 9);
+            this.dataGridView1.Location = new System.Drawing.Point(1, 81);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(733, 248);
+            this.dataGridView1.Size = new System.Drawing.Size(1083, 215);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -758,9 +673,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(993, 409);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1094, 448);
             this.Controls.Add(this.bunifuCards5);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.bunifuCards4);
             this.Controls.Add(this.bunifuCards3);
             this.Controls.Add(this.bunifuCards2);
@@ -795,11 +710,6 @@
         private System.Windows.Forms.Label label1;
         private Bunifu.Framework.UI.BunifuiOSSwitch bunifuiOSSwitch1;
         private Bunifu.Framework.UI.BunifuCards bunifuCards2;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox6;
@@ -809,16 +719,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label5;
         private Bunifu.Framework.UI.BunifuCards bunifuCards4;
@@ -836,5 +736,12 @@
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton2;
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
     }
 }

@@ -177,7 +177,7 @@ namespace sistemaGestion
                     MySqlDataReader reader = null;
                     try
                     {
-                        string query = "select cantpaquete,preciopaquete,proprecioventa from productos where procodbarra='" + textBox1.Text + "'";
+                        string query = "select cantpaquete,preciopaquete,proprecioventa from productos where procodbar='" + textBox1.Text + "'";
                         var cmd = new MySqlCommand(query, dbCon.Connection);
                         reader = cmd.ExecuteReader();
                         int cantpaquete = 1; double preciopaquete = 0;
@@ -551,7 +551,7 @@ namespace sistemaGestion
                     else
                     {
                         reader.Close();
-                        query = "select * from productos where probaja=0 and procodbarra='" + textBox1.Text + "'";
+                        query = "select * from productos where probaja=0 and procodbar='" + textBox1.Text + "'";
                         cmd = new MySqlCommand(query, dbCon.Connection);
                         reader = cmd.ExecuteReader();
                         if (reader.HasRows)

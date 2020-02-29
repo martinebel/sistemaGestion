@@ -174,49 +174,6 @@ namespace sistemaGestion
                     }
                     float preciou = 0;
                     //calcular precio por paquete
-                    MySqlDataReader reader = null;
-                    try
-                    {
-                        string query = "select cantpaquete,preciopaquete,proprecioventa from productos where procodbarra='" + textBox1.Text + "'";
-                        var cmd = new MySqlCommand(query, dbCon.Connection);
-                        reader = cmd.ExecuteReader();
-                        int cantpaquete = 1; double preciopaquete = 0;
-                        int cantvendida = 0; int paquetes = 0; int unidadessueltas = 0;
-
-                        double preciounitario = 0;
-                        cantvendida = int.Parse(textBox2.Text);
-                        while (reader.Read())
-                        {
-                            cantpaquete = reader.GetInt32(0);
-                            preciopaquete = reader.GetDouble(1);
-                            preciounitario = reader.GetDouble(2);
-                        }
-                        reader.Close();
-                        if (cantvendida >= cantpaquete)
-                        {
-                            //primero, establecer cuantos paquetes tengo.
-                            paquetes = cantvendida / cantpaquete;
-                            //luego, cantidad de unidades sueltas que me quedan
-                            unidadessueltas = cantvendida % cantpaquete;
-                            //finalmente, el precio final es lo siguiente:
-                            //(cantpaquetes*preciopaquete)+(unidadessueltas*preciounitario)
-                            double preciofinal = ((paquetes * preciopaquete) + (unidadessueltas * preciounitario));
-                            dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[7].Value = "Paq: " + cantpaquete.ToString() + "u" + " // Venta: " + paquetes + "p " + unidadessueltas + "u";
-                            dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[4].Value = preciofinal.ToString("0.##"); ;
-                            dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[3].Value = (preciofinal / double.Parse(textBox2.Text.Replace('.', ','))).ToString();
-                            textBox3.Text = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[3].Value.ToString();
-
-                        }
-                        else
-                        {
-                            double preciofinal = (cantvendida * preciounitario);
-                            dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[7].Value = "Paq: " + cantpaquete.ToString() + "u";
-                            dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[4].Value = preciofinal.ToString("0.##"); ;
-                            dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[3].Value = (preciofinal / double.Parse(textBox2.Text.Replace('.', ','))).ToString();
-                            textBox3.Text = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[3].Value.ToString();
-                        }
-                    }
-                    catch { reader.Close(); }
                     preciou = float.Parse(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[3].Value.ToString());
                     dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[2].Value = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[2].Value.ToString().Replace('.', ',');
                     dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[4].Value = preciou * float.Parse(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[2].Value.ToString());
@@ -477,7 +434,7 @@ namespace sistemaGestion
             if (!(long.TryParse(textBox1.Text, out numero)))
             {
                 string codigo = "";
-                string query = "select * from productos where probaja=0 and prodescripcion='" + textBox1.Text + "'";
+                string query = "select productos.*,productolista.importe from productos inner join productolista on productolista.idproducto=productos.procodigo where probaja=0 and prodescripcion='" + textBox1.Text + "'";
                 var cmd = new MySqlCommand(query, dbCon.Connection);
                 var reader = cmd.ExecuteReader();
 
@@ -486,23 +443,19 @@ namespace sistemaGestion
                 {
                     reader.Read();
                     codigo = reader.GetString(0);
-                    dataGridView1.Rows[fila].Cells[0].Value = reader.GetString(1); 
-                    dataGridView1.Rows[fila].Cells[1].Value = reader.GetString(2);
-                    dataGridView1.Rows[fila].Cells[2].Value = "1";
-                    dataGridView1.Rows[fila].Cells[3].Value = (double.Parse(reader.GetString(6))).ToString("0.##");
-                    dataGridView1.Rows[fila].Cells[4].Value = reader.GetString(6);
-                    dataGridView1.Rows[fila].Cells[5].Value = reader.GetString(0);
-                    dataGridView1.Rows[fila].Cells[6].Value = reader.GetString(7);
-                    dataGridView1.Rows[fila].Cells[7].Value = "";
-                    dataGridView1.Rows[fila].Cells[8].Value = reader.GetString(4);
-                    if (reader.GetString(10) != "1")
-                    {
-                        dataGridView1.Rows[fila].Cells[7].Value = "Paq: " + reader.GetString(10) + "u";
-                    }
+                    dataGridView1.Rows[fila].Cells[0].Value = reader.GetString(1); // codigo
+                    dataGridView1.Rows[fila].Cells[1].Value = reader.GetString(2); //descripcion
+                    dataGridView1.Rows[fila].Cells[2].Value = "1"; //cant
+                    dataGridView1.Rows[fila].Cells[3].Value = (double.Parse(reader.GetString(15))).ToString("0.##"); //pu
+                    dataGridView1.Rows[fila].Cells[4].Value = (double.Parse(reader.GetString(15))).ToString("0.##"); //subtotal
+                    dataGridView1.Rows[fila].Cells[5].Value = reader.GetString(0); //id
+                    dataGridView1.Rows[fila].Cells[6].Value = reader.GetString(3); //stock
+                    dataGridView1.Rows[fila].Cells[7].Value = reader.GetString(6); //iva
+                    
 
                     textBox1.Text = reader.GetString(1);
                     textBox2.Text = "1";
-                    textBox3.Text = (double.Parse(reader.GetString(6))).ToString("0.##");
+                    textBox3.Text = (double.Parse(reader.GetString(15))).ToString("0.##");
                     reader.Close();
                     preciou = 0;
                     preciou = float.Parse(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[3].Value.ToString());
@@ -525,7 +478,7 @@ namespace sistemaGestion
                 if (dbCon.IsConnect())
                 {
                     string codigo = "";
-                    string query = "select * from productos where probaja=0 and procodigo=" + textBox1.Text;
+                    string query = "select productos.*,productolista.importe from productos inner join productolista on productolista.idproducto=productos.procodigo where probaja=0 and procodigo=" + textBox1.Text;
                     var cmd = new MySqlCommand(query, dbCon.Connection);
                     var reader = cmd.ExecuteReader();
 
@@ -534,22 +487,19 @@ namespace sistemaGestion
                     {
                         reader.Read();
                         codigo = reader.GetString(0);
-                        dataGridView1.Rows[fila].Cells[0].Value = reader.GetString(1);
-                        dataGridView1.Rows[fila].Cells[1].Value = reader.GetString(2);
-                        dataGridView1.Rows[fila].Cells[2].Value = "1";
-                        dataGridView1.Rows[fila].Cells[3].Value = (double.Parse(reader.GetString(6))).ToString("0.##");
-                        dataGridView1.Rows[fila].Cells[4].Value = reader.GetString(6);
-                        dataGridView1.Rows[fila].Cells[5].Value = reader.GetString(0);
-                        dataGridView1.Rows[fila].Cells[6].Value = reader.GetString(7);
-                        dataGridView1.Rows[fila].Cells[7].Value = "";
-                        dataGridView1.Rows[fila].Cells[8].Value = reader.GetString(4);
-                        if (reader.GetString(10) != "1")
-                        {
-                            dataGridView1.Rows[fila].Cells[7].Value = "Paq: " + reader.GetString(10) + "u";
-                        }
+                        dataGridView1.Rows[fila].Cells[0].Value = reader.GetString(1); // codigo
+                        dataGridView1.Rows[fila].Cells[1].Value = reader.GetString(2); //descripcion
+                        dataGridView1.Rows[fila].Cells[2].Value = "1"; //cant
+                        dataGridView1.Rows[fila].Cells[3].Value = (double.Parse(reader.GetString(15))).ToString("0.##"); //pu
+                        dataGridView1.Rows[fila].Cells[4].Value = (double.Parse(reader.GetString(15))).ToString("0.##"); //subtotal
+                        dataGridView1.Rows[fila].Cells[5].Value = reader.GetString(0); //id
+                        dataGridView1.Rows[fila].Cells[6].Value = reader.GetString(3); //stock
+                        dataGridView1.Rows[fila].Cells[7].Value = reader.GetString(6); //iva
+
+
                         textBox1.Text = reader.GetString(1);
                         textBox2.Text = "1";
-                        textBox3.Text = (double.Parse(reader.GetString(6))).ToString("0.##");
+                        textBox3.Text = (double.Parse(reader.GetString(15))).ToString("0.##");
                         reader.Close();
                         preciou = 0;
                         preciou = float.Parse(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[3].Value.ToString());
@@ -562,32 +512,26 @@ namespace sistemaGestion
                     else
                     {
                         reader.Close();
-                        query = "select * from productos where probaja=0 and procodbarra='" + textBox1.Text + "'";
+                        query = "select productos.*,productolista.importe from productos inner join productolista on productolista.idproducto=productos.procodigo where probaja=0 and procodbar='" + textBox1.Text + "'";
                         cmd = new MySqlCommand(query, dbCon.Connection);
                         reader = cmd.ExecuteReader();
                         if (reader.HasRows)
                         {
                             reader.Read();
                             codigo = reader.GetString(0);
-                            dataGridView1.Rows[fila].Cells[0].Value = reader.GetString(1);
-                            dataGridView1.Rows[fila].Cells[1].Value = reader.GetString(2);
-                            dataGridView1.Rows[fila].Cells[2].Value = "1";
-                            dataGridView1.Rows[fila].Cells[3].Value = (double.Parse(reader.GetString(6))).ToString("0.##");
-                            dataGridView1.Rows[fila].Cells[4].Value = reader.GetString(6);
-                            dataGridView1.Rows[fila].Cells[5].Value = reader.GetString(0);
-                            dataGridView1.Rows[fila].Cells[6].Value = reader.GetString(7);
-                            dataGridView1.Rows[fila].Cells[7].Value = "";
-                            dataGridView1.Rows[fila].Cells[8].Value = reader.GetString(4);
-                            if (!reader.IsDBNull(10))
-                            {
-                                if (reader.GetString(10) != "1")
-                                {
-                                    dataGridView1.Rows[fila].Cells[7].Value = "Paq: " + reader.GetString(10) + "u";
-                                }
-                            }
+                            dataGridView1.Rows[fila].Cells[0].Value = reader.GetString(1); // codigo
+                            dataGridView1.Rows[fila].Cells[1].Value = reader.GetString(2); //descripcion
+                            dataGridView1.Rows[fila].Cells[2].Value = "1"; //cant
+                            dataGridView1.Rows[fila].Cells[3].Value = (double.Parse(reader.GetString(15))).ToString("0.##"); //pu
+                            dataGridView1.Rows[fila].Cells[4].Value = (double.Parse(reader.GetString(15))).ToString("0.##"); //subtotal
+                            dataGridView1.Rows[fila].Cells[5].Value = reader.GetString(0); //id
+                            dataGridView1.Rows[fila].Cells[6].Value = reader.GetString(3); //stock
+                            dataGridView1.Rows[fila].Cells[7].Value = reader.GetString(6); //iva
+
+
                             textBox1.Text = reader.GetString(1);
                             textBox2.Text = "1";
-                            textBox3.Text = (double.Parse(reader.GetString(6))).ToString("0.##");
+                            textBox3.Text = (double.Parse(reader.GetString(15))).ToString("0.##");
                             reader.Close();
                             preciou = 0;
                             preciou = float.Parse(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[3].Value.ToString());

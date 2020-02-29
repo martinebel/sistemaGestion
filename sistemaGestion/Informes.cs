@@ -223,7 +223,7 @@ namespace sistemaGestion
                     else
                     {
                         reader.Close();
-                        query = "select procodigo from productos where procodbarra='" + text.Text + "'";
+                        query = "select procodigo from productos where procodbar='" + text.Text + "'";
                         cmd = new MySqlCommand(query, dbCon.Connection);
                         reader = cmd.ExecuteReader();
                         if (reader.HasRows)

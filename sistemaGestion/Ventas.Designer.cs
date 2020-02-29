@@ -69,7 +69,6 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.bunifuCards1.SuspendLayout();
@@ -335,7 +334,6 @@
             this.Column5,
             this.Column6,
             this.stock,
-            this.Column7,
             this.Column8});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -355,7 +353,7 @@
             this.dataGridView1.RowTemplate.Height = 26;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1081, 564);
+            this.dataGridView1.Size = new System.Drawing.Size(779, 564);
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.TabStop = false;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
@@ -643,13 +641,6 @@
             this.stock.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.stock.Visible = false;
             // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Info";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 300;
-            // 
             // Column8
             // 
             this.Column8.HeaderText = "iva";
@@ -661,7 +652,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1335, 580);
+            this.ClientSize = new System.Drawing.Size(1042, 580);
             this.Controls.Add(this.bunifuCards3);
             this.Controls.Add(this.bunifuCards2);
             this.Controls.Add(this.bunifuCards1);
@@ -726,7 +717,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn stock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
     }
 }

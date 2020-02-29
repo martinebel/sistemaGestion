@@ -459,7 +459,7 @@ namespace sistemaGestion
                     else
                     {
                         reader.Close();
-                        query = "select * from productos where  procodbarra='" + textBox1.Text + "'";
+                        query = "select * from productos where  procodbar='" + textBox1.Text + "'";
                         cmd = new MySqlCommand(query, dbCon.Connection);
                         reader = cmd.ExecuteReader();
                         if (reader.HasRows)

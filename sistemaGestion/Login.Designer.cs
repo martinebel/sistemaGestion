@@ -33,6 +33,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
+            this.bunifuDropdown1 = new Bunifu.Framework.UI.BunifuDropdown();
             this.label1 = new System.Windows.Forms.Label();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -44,7 +45,6 @@
             this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuTransition1 = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.bunifuDropdown1 = new Bunifu.Framework.UI.BunifuDropdown();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bunifuCards1.SuspendLayout();
             this.bunifuCards2.SuspendLayout();
@@ -79,15 +79,35 @@
             this.bunifuCards1.Size = new System.Drawing.Size(274, 178);
             this.bunifuCards1.TabIndex = 6;
             // 
+            // bunifuDropdown1
+            // 
+            this.bunifuDropdown1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuDropdown1.BorderRadius = 3;
+            this.bunifuDropdown1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bunifuTransition1.SetDecoration(this.bunifuDropdown1, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuDropdown1.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuDropdown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.bunifuDropdown1.ForeColor = System.Drawing.Color.DimGray;
+            this.bunifuDropdown1.Items = new string[0];
+            this.bunifuDropdown1.Location = new System.Drawing.Point(11, 37);
+            this.bunifuDropdown1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuDropdown1.Name = "bunifuDropdown1";
+            this.bunifuDropdown1.NomalColor = System.Drawing.Color.White;
+            this.bunifuDropdown1.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
+            this.bunifuDropdown1.selectedIndex = -1;
+            this.bunifuDropdown1.Size = new System.Drawing.Size(249, 44);
+            this.bunifuDropdown1.TabIndex = 9;
+            this.bunifuDropdown1.onItemSelected += new System.EventHandler(this.bunifuDropdown1_onItemSelected);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.bunifuTransition1.SetDecoration(this.label1, BunifuAnimatorNS.DecorationType.None);
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
             this.label1.Location = new System.Drawing.Point(8, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 16);
+            this.label1.Size = new System.Drawing.Size(62, 16);
             this.label1.TabIndex = 8;
             this.label1.Text = "Usuario";
             // 
@@ -169,7 +189,7 @@
             this.bunifuMaterialTextbox2.BorderThickness = 3;
             this.bunifuMaterialTextbox2.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.bunifuTransition1.SetDecoration(this.bunifuMaterialTextbox2, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuMaterialTextbox2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bunifuMaterialTextbox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.bunifuMaterialTextbox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.bunifuMaterialTextbox2.isPassword = true;
             this.bunifuMaterialTextbox2.Location = new System.Drawing.Point(11, 34);
@@ -184,11 +204,11 @@
             // 
             this.label2.AutoSize = true;
             this.bunifuTransition1.SetDecoration(this.label2, BunifuAnimatorNS.DecorationType.None);
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
             this.label2.Location = new System.Drawing.Point(8, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 16);
+            this.label2.Size = new System.Drawing.Size(87, 16);
             this.label2.TabIndex = 9;
             this.label2.Text = "Contraseña";
             // 
@@ -286,24 +306,6 @@
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Cerrar";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
-            // 
-            // bunifuDropdown1
-            // 
-            this.bunifuDropdown1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuDropdown1.BorderRadius = 3;
-            this.bunifuTransition1.SetDecoration(this.bunifuDropdown1, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuDropdown1.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuDropdown1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.bunifuDropdown1.ForeColor = System.Drawing.Color.DimGray;
-            this.bunifuDropdown1.Items = new string[0];
-            this.bunifuDropdown1.Location = new System.Drawing.Point(11, 37);
-            this.bunifuDropdown1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.bunifuDropdown1.Name = "bunifuDropdown1";
-            this.bunifuDropdown1.NomalColor = System.Drawing.Color.White;
-            this.bunifuDropdown1.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
-            this.bunifuDropdown1.selectedIndex = -1;
-            this.bunifuDropdown1.Size = new System.Drawing.Size(249, 46);
-            this.bunifuDropdown1.TabIndex = 9;
             // 
             // Login
             // 
